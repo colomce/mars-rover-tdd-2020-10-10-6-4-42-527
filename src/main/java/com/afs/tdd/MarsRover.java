@@ -21,6 +21,8 @@ public class MarsRover {
     private void runAction(String command) {
         if ("M".equals(command)) {
             move();
+        } else if ("L".equals(command)) {
+            turnLeft();
         }
     }
 
@@ -33,6 +35,12 @@ public class MarsRover {
             x++;
         } else if ("W".equals(heading)) {
             x--;
+        }
+    }
+
+    private void turnLeft() {
+        if ("N".equals(heading)) {
+            heading = "W";
         }
     }
 
