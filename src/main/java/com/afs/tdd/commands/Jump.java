@@ -13,4 +13,9 @@ public class Jump implements ICommand {
     public void execute() {
         System.out.println("Jumping");
     }
+
+    @Override
+    public void unExecute() {
+        System.out.println("Descending");
+    }
 }

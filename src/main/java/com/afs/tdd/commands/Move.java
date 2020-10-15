@@ -13,4 +13,9 @@ public class Move implements ICommand {
     public void execute() {
         this.explorationDevice.move();
     }
+
+    @Override
+    public void unExecute() {
+        this.explorationDevice.moveBackwards();
+    }
 }
