@@ -10,10 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MarsRover implements ExplorationDevice {
-
-    private static final String MOVE = "M";
-    private static final String LEFT = "L";
-    private static final String RIGHT = "R";
     private static final String NORTH = "N";
     private static final String SOUTH = "S";
     private static final String EAST = "E";
