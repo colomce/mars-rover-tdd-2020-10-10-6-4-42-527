@@ -21,7 +21,7 @@ public class MarsRover implements ExplorationDevice {
     private int y;
     private String heading;
 
-    private List<Class> validCommands2 = Arrays.asList(Move.class, TurnLeft.class, TurnRight.class);
+    private List<Class> validCommands = Arrays.asList(Move.class, TurnLeft.class, TurnRight.class);
 
     public MarsRover(int x, int y, String heading) {
         this.x = x;
@@ -36,7 +36,7 @@ public class MarsRover implements ExplorationDevice {
 
     private void validateCommands(List<ICommand> commandList) {
         boolean hasInvalidCommand = commandList.stream()
-                .anyMatch(command -> !validCommands2.contains(command.getClass()));
+                .anyMatch(command -> !validCommands.contains(command.getClass()));
         if (hasInvalidCommand) {
             throw new CommandNotDefinedException();
         }
