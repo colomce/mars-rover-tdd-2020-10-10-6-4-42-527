@@ -15,7 +15,7 @@ public class MarsRover {
     }
 
     public void runActions(String commands) {
-        Arrays.stream(commands.split("")).forEach(command -> runAction(command));
+        Arrays.stream(commands.split("")).forEach(this::runAction);
     }
 
     private void runAction(String command) {
