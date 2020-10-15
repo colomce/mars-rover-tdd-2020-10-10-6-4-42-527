@@ -1,6 +1,8 @@
 package com.afs.tdd;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MarsRover {
 
@@ -14,6 +16,7 @@ public class MarsRover {
     private int x;
     private int y;
     private String heading;
+    private List<String> validCommands = Arrays.asList(MOVE, LEFT, RIGHT);
 
     public MarsRover(int x, int y, String heading) {
         this.x = x;
@@ -22,8 +25,19 @@ public class MarsRover {
     }
 
     public void runCommands(String commands) {
-        Arrays.stream(commands.split("")).forEach(this::runCommand);
+        List<String> commandList = Arrays.stream(commands.split("")).collect(Collectors.toList());
+        validateCommands(commandList);
+        commandList.forEach(this::runCommand);
     }
+
+    private void validateCommands(List<String> commandList) {
+        boolean hasInvalidCommand = commandList.stream()
+                .anyMatch(command -> !validCommands.contains(command));
+        if (hasInvalidCommand) {
+            throw new CommandNotDefinedException();
+        }
+    }
+
 
     private void runCommand(String command) {
         if (MOVE.equals(command)) {
