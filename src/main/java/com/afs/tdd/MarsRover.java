@@ -19,13 +19,13 @@ public class MarsRover {
     }
 
     private void runAction(String command) {
-        if("M".equals(command)) {
+        if ("M".equals(command)) {
             move();
         }
     }
 
     private void move() {
-        if("N".equals(heading)) {
+        if ("N".equals(heading)) {
             y++;
         } else if ("S".equals(heading)) {
             y--;
