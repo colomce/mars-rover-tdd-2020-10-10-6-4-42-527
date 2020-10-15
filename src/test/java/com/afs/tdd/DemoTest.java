@@ -169,4 +169,19 @@ class DemoTest {
         assertEquals(0, rover.getLocationY());
         assertEquals("S", rover.getHeading());
     }
+
+    @Test
+    void should_x_0_y_0_heading_N_when_runActions_given_x_0_y_0_heading_W_commands_R() {
+        //given
+        String commands = "R";
+        MarsRover rover = new MarsRover(0, 0, "W");
+
+        //when
+        rover.runActions(commands);
+
+        //then
+        assertEquals(0, rover.getLocationX());
+        assertEquals(0, rover.getLocationY());
+        assertEquals("N", rover.getHeading());
+    }
 }
