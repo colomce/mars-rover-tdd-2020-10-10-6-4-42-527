@@ -9,6 +9,7 @@ public class MarsRover {
     private static final String RIGHT = "R";
     private static final String NORTH = "N";
     private static final String SOUTH = "S";
+    private static final String EAST = "E";
     private int x;
     private int y;
     private String heading;
@@ -38,7 +39,7 @@ public class MarsRover {
             y++;
         } else if (SOUTH.equals(heading)) {
             y--;
-        } else if ("E".equals(heading)) {
+        } else if (EAST.equals(heading)) {
             x++;
         } else if ("W".equals(heading)) {
             x--;
@@ -49,8 +50,8 @@ public class MarsRover {
         if (NORTH.equals(heading)) {
             heading = "W";
         } else if (SOUTH.equals(heading)) {
-            heading = "E";
-        } else if ("E".equals(heading)) {
+            heading = EAST;
+        } else if (EAST.equals(heading)) {
             heading = NORTH;
         } else if ("W".equals(heading)) {
             heading = SOUTH;
@@ -59,10 +60,10 @@ public class MarsRover {
 
     private void turnRight() {
         if (NORTH.equals(heading)) {
-            heading = "E";
+            heading = EAST;
         } else if (SOUTH.equals(heading)) {
             heading = "W";
-        } else if ("E".equals(heading)) {
+        } else if (EAST.equals(heading)) {
             heading = SOUTH;
         } else if ("W".equals(heading)) {
             heading = NORTH;
