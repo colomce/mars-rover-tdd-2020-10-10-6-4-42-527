@@ -3,6 +3,7 @@ package com.afs.tdd;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DemoTest {
     @Test
@@ -178,6 +179,23 @@ class DemoTest {
 
         //when
         rover.runCommands(commands);
+
+        //then
+        assertEquals(0, rover.getLocationX());
+        assertEquals(0, rover.getLocationY());
+        assertEquals("N", rover.getHeading());
+    }
+
+    @Test
+    void should_throw_CommandNotDefinedException_when_runActions_given_x_0_y_0_heading_N_commands_F() {
+        //given
+        String commands = "F";
+        MarsRover rover = new MarsRover(0, 0, "N");
+
+        assertThrows(CommandNotDefinedException.class, () -> {
+            //when
+            rover.runCommands(commands);
+        });
 
         //then
         assertEquals(0, rover.getLocationX());
