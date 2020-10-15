@@ -15,4 +15,8 @@ public class ControlCenter {
     public List<ICommand> send() {
         return commands;
     }
+
+    public void rollback() {
+        
+    }
 }

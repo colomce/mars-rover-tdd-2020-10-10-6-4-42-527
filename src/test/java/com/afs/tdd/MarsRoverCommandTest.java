@@ -234,7 +234,11 @@ class MarsRoverCommandTest {
                 new TurnRight(rover),
                 new Jump(rover));
         //when
-        rover.runCommands(controlCenter.send());
+        try{
+            rover.runCommands(controlCenter.send());
+        } catch (Exception ex) {
+            controlCenter.rollback();
+        }
 
         //then
         assertEquals(0, rover.getLocationX());
