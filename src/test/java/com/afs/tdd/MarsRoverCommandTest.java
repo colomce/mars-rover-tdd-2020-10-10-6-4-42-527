@@ -222,4 +222,23 @@ class MarsRoverCommandTest {
         assertEquals(1, rover.getLocationY());
         assertEquals("N", rover.getHeading());
     }
+
+    @Test
+    void should_rollback_x_0_y_0_heading_N_when_runCommands_given_x_0_y_0_heading_N_commands_MLMRJ() {
+        //given
+        MarsRover rover = new MarsRover(0, 0, "N");
+        ControlCenter controlCenter = new ControlCenter(
+                new Move(rover),
+                new TurnLeft(rover),
+                new Move(rover),
+                new TurnRight(rover),
+                new Jump(rover));
+        //when
+        rover.runCommands(controlCenter.send());
+
+        //then
+        assertEquals(0, rover.getLocationX());
+        assertEquals(0, rover.getLocationY());
+        assertEquals("N", rover.getHeading());
+    }
 }
