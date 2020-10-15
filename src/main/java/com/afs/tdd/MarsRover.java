@@ -21,7 +21,7 @@ public class MarsRover {
         this.heading = heading;
     }
 
-    public void runActions(String commands) {
+    public void runCommands(String commands) {
         Arrays.stream(commands.split("")).forEach(this::runAction);
     }
 
