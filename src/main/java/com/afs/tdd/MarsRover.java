@@ -23,6 +23,8 @@ public class MarsRover {
             move();
         } else if ("L".equals(command)) {
             turnLeft();
+        } else if ("R".equals(command)) {
+            turnRight();
         }
     }
 
@@ -47,6 +49,12 @@ public class MarsRover {
             heading = "N";
         } else if ("W".equals(heading)) {
             heading = "S";
+        }
+    }
+
+    private void turnRight() {
+        if ("N".equals(heading)) {
+            heading = "E";
         }
     }
 
