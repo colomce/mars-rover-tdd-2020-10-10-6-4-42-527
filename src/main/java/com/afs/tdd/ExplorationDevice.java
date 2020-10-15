@@ -1,7 +1,7 @@
 package com.afs.tdd;
 
 public interface ExplorationDevice {
-    void move();
+    void moveForward();
     void turnLeft();
     void turnRight();
     void moveBackwards();

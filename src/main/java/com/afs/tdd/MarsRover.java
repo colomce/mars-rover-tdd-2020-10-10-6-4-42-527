@@ -45,7 +45,7 @@ public class MarsRover implements ExplorationDevice {
         commandList.forEach(ICommand::unExecute);
     }
 
-    public void move() {
+    public void moveForward() {
         if (NORTH.equals(heading)) {
             y++;
         } else if (SOUTH.equals(heading)) {
