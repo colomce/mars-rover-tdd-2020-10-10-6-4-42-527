@@ -27,7 +27,7 @@ public class MarsRover {
     public void runCommands(String commands) {
         List<String> commandList = Arrays.stream(commands.split("")).collect(Collectors.toList());
         validateCommands(commandList);
-        commandList.forEach(this::runCommand);
+        runEachCommand(commandList);
     }
 
     private void validateCommands(List<String> commandList) {
@@ -38,6 +38,9 @@ public class MarsRover {
         }
     }
 
+    private void runEachCommand(List<String> commandList) {
+        commandList.forEach(this::runCommand);
+    }
 
     private void runCommand(String command) {
         if (MOVE.equals(command)) {
