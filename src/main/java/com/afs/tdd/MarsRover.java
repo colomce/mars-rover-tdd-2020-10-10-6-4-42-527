@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class MarsRover {
 
+    private static final String MOVE = "M";
+    private static final String LEFT = "L";
+    private static final String RIGHT = "R";
     private int x;
     private int y;
     private String heading;
@@ -19,11 +22,11 @@ public class MarsRover {
     }
 
     private void runAction(String command) {
-        if ("M".equals(command)) {
+        if (MOVE.equals(command)) {
             move();
-        } else if ("L".equals(command)) {
+        } else if (LEFT.equals(command)) {
             turnLeft();
-        } else if ("R".equals(command)) {
+        } else if (RIGHT.equals(command)) {
             turnRight();
         }
     }
