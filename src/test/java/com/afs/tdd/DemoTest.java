@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DemoTest {
     @Test
-    void should_x_0_y_1_heading_N_when_runActions_given_x_0_y_0_heading_N_commands_M() {
+    void should_x_0_y_1_heading_N_when_runCommands_given_x_0_y_0_heading_N_commands_M() {
         //given
         String commands = "M";
         MarsRover rover = new MarsRover(0, 0, "N");
@@ -21,7 +21,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_neg1_heading_S_when_runActions_given_x_0_y_0_heading_S_commands_M() {
+    void should_x_0_y_neg1_heading_S_when_runCommands_given_x_0_y_0_heading_S_commands_M() {
         //given
         String commands = "M";
         MarsRover rover = new MarsRover(0, 0, "S");
@@ -36,7 +36,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_1_y_0_heading_E_when_runActions_given_x_0_y_0_heading_E_commands_M() {
+    void should_x_1_y_0_heading_E_when_runCommands_given_x_0_y_0_heading_E_commands_M() {
         //given
         String commands = "M";
         MarsRover rover = new MarsRover(0, 0, "E");
@@ -51,7 +51,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_neg1_y_0_heading_W_when_runActions_given_x_0_y_0_heading_W_commands_M() {
+    void should_x_neg1_y_0_heading_W_when_runCommands_given_x_0_y_0_heading_W_commands_M() {
         //given
         String commands = "M";
         MarsRover rover = new MarsRover(0, 0, "W");
@@ -66,7 +66,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_W_when_runActions_given_x_0_y_0_heading_N_commands_L() {
+    void should_x_0_y_0_heading_W_when_runCommands_given_x_0_y_0_heading_N_commands_L() {
         //given
         String commands = "L";
         MarsRover rover = new MarsRover(0, 0, "N");
@@ -81,7 +81,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_E_when_runActions_given_x_0_y_0_heading_S_commands_L() {
+    void should_x_0_y_0_heading_E_when_runCommands_given_x_0_y_0_heading_S_commands_L() {
         //given
         String commands = "L";
         MarsRover rover = new MarsRover(0, 0, "S");
@@ -96,7 +96,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_N_when_runActions_given_x_0_y_0_heading_E_commands_L() {
+    void should_x_0_y_0_heading_N_when_runCommands_given_x_0_y_0_heading_E_commands_L() {
         //given
         String commands = "L";
         MarsRover rover = new MarsRover(0, 0, "E");
@@ -111,7 +111,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_S_when_runActions_given_x_0_y_0_heading_W_commands_L() {
+    void should_x_0_y_0_heading_S_when_runCommands_given_x_0_y_0_heading_W_commands_L() {
         //given
         String commands = "L";
         MarsRover rover = new MarsRover(0, 0, "W");
@@ -126,7 +126,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_E_when_runActions_given_x_0_y_0_heading_N_commands_R() {
+    void should_x_0_y_0_heading_E_when_runCommands_given_x_0_y_0_heading_N_commands_R() {
         //given
         String commands = "R";
         MarsRover rover = new MarsRover(0, 0, "N");
@@ -141,7 +141,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_W_when_runActions_given_x_0_y_0_heading_S_commands_R() {
+    void should_x_0_y_0_heading_W_when_runCommands_given_x_0_y_0_heading_S_commands_R() {
         //given
         String commands = "R";
         MarsRover rover = new MarsRover(0, 0, "S");
@@ -156,7 +156,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_S_when_runActions_given_x_0_y_0_heading_E_commands_R() {
+    void should_x_0_y_0_heading_S_when_runCommands_given_x_0_y_0_heading_E_commands_R() {
         //given
         String commands = "R";
         MarsRover rover = new MarsRover(0, 0, "E");
@@ -171,7 +171,7 @@ class DemoTest {
     }
 
     @Test
-    void should_x_0_y_0_heading_N_when_runActions_given_x_0_y_0_heading_W_commands_R() {
+    void should_x_0_y_0_heading_N_when_runCommands_given_x_0_y_0_heading_W_commands_R() {
         //given
         String commands = "R";
         MarsRover rover = new MarsRover(0, 0, "W");
