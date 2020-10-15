@@ -233,11 +233,13 @@ class MarsRoverCommandTest {
                 new Move(rover),
                 new TurnRight(rover),
                 new Jump(rover));
+
         //when
-        try{
+        try {
             rover.runCommands(controlCenter.send());
         } catch (Exception ex) {
-            controlCenter.rollback();
+            controlCenter.removeCommand(rover.getInvalidCommands());
+            rover.rollbackEachCommand(controlCenter.rollback());
         }
 
         //then
