@@ -4,4 +4,5 @@ public interface ExplorationDevice {
     void move();
     void turnLeft();
     void turnRight();
+    void moveBackwards();
 }

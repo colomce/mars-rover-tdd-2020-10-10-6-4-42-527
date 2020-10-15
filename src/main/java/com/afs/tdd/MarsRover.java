@@ -5,8 +5,10 @@ import com.afs.tdd.commands.Move;
 import com.afs.tdd.commands.TurnLeft;
 import com.afs.tdd.commands.TurnRight;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MarsRover implements ExplorationDevice {
 
@@ -22,6 +24,7 @@ public class MarsRover implements ExplorationDevice {
     private String heading;
 
     private List<Class> validCommands = Arrays.asList(Move.class, TurnLeft.class, TurnRight.class);
+    private List<ICommand> invalidCommands = new ArrayList<>();
 
     public MarsRover(int x, int y, String heading) {
         this.x = x;
@@ -30,20 +33,21 @@ public class MarsRover implements ExplorationDevice {
     }
 
     public void runCommands(List<ICommand> commands) {
-        validateCommands(commands);
         runEachCommand(commands);
     }
 
-    private void validateCommands(List<ICommand> commandList) {
-        boolean hasInvalidCommand = commandList.stream()
-                .anyMatch(command -> !validCommands.contains(command.getClass()));
-        if (hasInvalidCommand) {
-            throw new CommandNotDefinedException();
-        }
+    private void runEachCommand(List<ICommand> commandList) {
+        commandList.forEach(iCommand -> {
+            if (!validCommands.contains(iCommand.getClass())) {
+                invalidCommands.add(iCommand);
+                throw new CommandNotDefinedException();
+            }
+            iCommand.execute();
+        });
     }
 
-    private void runEachCommand(List<ICommand> commandList) {
-        commandList.forEach(ICommand::execute);
+    public void rollbackEachCommand(List<ICommand> commandList) {
+        commandList.forEach(ICommand::unExecute);
     }
 
     public void move() {
@@ -55,6 +59,19 @@ public class MarsRover implements ExplorationDevice {
             x++;
         } else if (WEST.equals(heading)) {
             x--;
+        }
+    }
+
+    @Override
+    public void moveBackwards() {
+        if (NORTH.equals(heading)) {
+            y--;
+        } else if (SOUTH.equals(heading)) {
+            y++;
+        } else if (EAST.equals(heading)) {
+            x--;
+        } else if (WEST.equals(heading)) {
+            x++;
         }
     }
 
@@ -92,5 +109,9 @@ public class MarsRover implements ExplorationDevice {
 
     public String getHeading() {
         return heading;
+    }
+
+    public List<ICommand> getInvalidCommands() {
+        return invalidCommands;
     }
 }
