@@ -31,6 +31,8 @@ public class MarsRover {
             y--;
         } else if ("E".equals(heading)) {
             x++;
+        } else if ("W".equals(heading)) {
+            x--;
         }
     }
 
