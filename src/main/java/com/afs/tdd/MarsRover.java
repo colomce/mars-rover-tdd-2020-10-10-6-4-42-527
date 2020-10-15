@@ -22,10 +22,10 @@ public class MarsRover {
     }
 
     public void runCommands(String commands) {
-        Arrays.stream(commands.split("")).forEach(this::runAction);
+        Arrays.stream(commands.split("")).forEach(this::runCommand);
     }
 
-    private void runAction(String command) {
+    private void runCommand(String command) {
         if (MOVE.equals(command)) {
             move();
         } else if (LEFT.equals(command)) {
