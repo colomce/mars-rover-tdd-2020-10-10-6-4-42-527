@@ -27,6 +27,8 @@ public class MarsRover {
     private void move() {
         if("N".equals(heading)) {
             y++;
+        } else if ("S".equals(heading)) {
+            y--;
         }
     }
 
