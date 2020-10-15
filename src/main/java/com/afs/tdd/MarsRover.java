@@ -1,10 +1,14 @@
 package com.afs.tdd;
 
+import com.afs.tdd.commands.ICommand;
+import com.afs.tdd.commands.Move;
+import com.afs.tdd.commands.TurnLeft;
+import com.afs.tdd.commands.TurnRight;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class MarsRover {
+public class MarsRover implements ExplorationDevice {
 
     private static final String MOVE = "M";
     private static final String LEFT = "L";
@@ -16,7 +20,8 @@ public class MarsRover {
     private int x;
     private int y;
     private String heading;
-    private List<String> validCommands = Arrays.asList(MOVE, LEFT, RIGHT);
+
+    private List<Class> validCommands2 = Arrays.asList(Move.class, TurnLeft.class, TurnRight.class);
 
     public MarsRover(int x, int y, String heading) {
         this.x = x;
@@ -24,35 +29,24 @@ public class MarsRover {
         this.heading = heading;
     }
 
-    public void runCommands(String commands) {
-        List<String> commandList = Arrays.stream(commands.split("")).collect(Collectors.toList());
-        validateCommands(commandList);
-        runEachCommand(commandList);
+    public void runCommands(List<ICommand> commands) {
+        validateCommands(commands);
+        runEachCommand(commands);
     }
 
-    private void validateCommands(List<String> commandList) {
+    private void validateCommands(List<ICommand> commandList) {
         boolean hasInvalidCommand = commandList.stream()
-                .anyMatch(command -> !validCommands.contains(command));
+                .anyMatch(command -> !validCommands2.contains(command.getClass()));
         if (hasInvalidCommand) {
             throw new CommandNotDefinedException();
         }
     }
 
-    private void runEachCommand(List<String> commandList) {
-        commandList.forEach(this::runCommand);
+    private void runEachCommand(List<ICommand> commandList) {
+        commandList.forEach(ICommand::execute);
     }
 
-    private void runCommand(String command) {
-        if (MOVE.equals(command)) {
-            move();
-        } else if (LEFT.equals(command)) {
-            turnLeft();
-        } else if (RIGHT.equals(command)) {
-            turnRight();
-        }
-    }
-
-    private void move() {
+    public void move() {
         if (NORTH.equals(heading)) {
             y++;
         } else if (SOUTH.equals(heading)) {
@@ -64,7 +58,7 @@ public class MarsRover {
         }
     }
 
-    private void turnLeft() {
+    public void turnLeft() {
         if (NORTH.equals(heading)) {
             heading = WEST;
         } else if (SOUTH.equals(heading)) {
@@ -76,7 +70,7 @@ public class MarsRover {
         }
     }
 
-    private void turnRight() {
+    public void turnRight() {
         if (NORTH.equals(heading)) {
             heading = EAST;
         } else if (SOUTH.equals(heading)) {
