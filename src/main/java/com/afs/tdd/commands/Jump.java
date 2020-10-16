@@ -1,11 +1,11 @@
 package com.afs.tdd.commands;
 
-import com.afs.tdd.ExplorationDevice;
+import com.afs.tdd.IExplorationDevice;
 
 public class Jump implements ICommand {
-    private ExplorationDevice explorationDevice;
+    private IExplorationDevice explorationDevice;
 
-    public Jump(ExplorationDevice explorationDevice) {
+    public Jump(IExplorationDevice explorationDevice) {
         this.explorationDevice = explorationDevice;
     }
 

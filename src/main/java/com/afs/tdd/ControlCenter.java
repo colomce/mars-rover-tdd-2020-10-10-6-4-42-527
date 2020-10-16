@@ -10,7 +10,7 @@ import java.util.List;
 public class ControlCenter {
     private List<ICommand> commands = new ArrayList<>();
 
-    public ControlCenter(ICommand... commands) {
+    public ControlCenter(ICommand ... commands) {
         this.commands.addAll(Arrays.asList(commands));
     }
 

@@ -1,11 +1,11 @@
 package com.afs.tdd.commands;
 
-import com.afs.tdd.ExplorationDevice;
+import com.afs.tdd.IExplorationDevice;
 
 public class TurnLeft implements ICommand {
-    private ExplorationDevice explorationDevice;
+    private IExplorationDevice explorationDevice;
 
-    public TurnLeft(ExplorationDevice explorationDevice) {
+    public TurnLeft(IExplorationDevice explorationDevice) {
         this.explorationDevice = explorationDevice;
     }
 

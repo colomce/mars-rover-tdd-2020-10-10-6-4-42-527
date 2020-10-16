@@ -1,11 +1,11 @@
 package com.afs.tdd.commands;
 
-import com.afs.tdd.ExplorationDevice;
+import com.afs.tdd.IExplorationDevice;
 
 public class Move implements ICommand {
-    private ExplorationDevice explorationDevice;
+    private IExplorationDevice explorationDevice;
 
-    public Move(ExplorationDevice explorationDevice) {
+    public Move(IExplorationDevice explorationDevice) {
         this.explorationDevice = explorationDevice;
     }
 
