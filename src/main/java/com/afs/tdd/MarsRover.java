@@ -9,19 +9,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.afs.tdd.Directions.EAST;
+import static com.afs.tdd.Directions.NORTH;
+import static com.afs.tdd.Directions.SOUTH;
+import static com.afs.tdd.Directions.WEST;
+
 public class MarsRover implements IExplorationDevice {
-    private static final String NORTH = "N";
-    private static final String SOUTH = "S";
-    private static final String EAST = "E";
-    private static final String WEST = "W";
     private int x;
     private int y;
-    private String heading;
+    private Directions heading;
 
     private List<Class> validCommands = Arrays.asList(Move.class, TurnLeft.class, TurnRight.class);
     private List<ICommand> invalidCommands = new ArrayList<>();
 
-    public MarsRover(int x, int y, String heading) {
+    public MarsRover(int x, int y, Directions heading) {
         this.x = x;
         this.y = y;
         this.heading = heading;
@@ -105,7 +106,7 @@ public class MarsRover implements IExplorationDevice {
         return y;
     }
 
-    public String getHeading() {
+    public Directions getHeading() {
         return heading;
     }
 
