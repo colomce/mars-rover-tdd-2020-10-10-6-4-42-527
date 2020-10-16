@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MarsRover implements ExplorationDevice {
+public class MarsRover implements IExplorationDevice {
     private static final String NORTH = "N";
     private static final String SOUTH = "S";
     private static final String EAST = "E";
@@ -45,6 +45,7 @@ public class MarsRover implements ExplorationDevice {
         commandList.forEach(ICommand::unExecute);
     }
 
+    @Override
     public void moveForward() {
         if (NORTH.equals(heading)) {
             y++;
@@ -70,6 +71,7 @@ public class MarsRover implements ExplorationDevice {
         }
     }
 
+    @Override
     public void turnLeft() {
         if (NORTH.equals(heading)) {
             heading = WEST;
@@ -82,6 +84,7 @@ public class MarsRover implements ExplorationDevice {
         }
     }
 
+    @Override
     public void turnRight() {
         if (NORTH.equals(heading)) {
             heading = EAST;
