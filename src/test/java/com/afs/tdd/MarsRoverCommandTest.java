@@ -17,7 +17,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_1_heading_N_when_runCommands_given_x_0_y_0_heading_N_commands_M() {
         //given
-        MarsRover rover = new MarsRover(0, 0, NORTH);
+        MarsRover rover = new MarsRover(new Location(0,0), NORTH);
         ControlCenter controlCenter = new ControlCenter(new Move(rover));
 
         //when
@@ -32,7 +32,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_neg1_heading_S_when_runCommands_given_x_0_y_0_heading_S_commands_M() {
         //given
-        MarsRover rover = new MarsRover(0, 0, SOUTH);
+        MarsRover rover = new MarsRover(new Location(0,0), SOUTH);
         ControlCenter controlCenter = new ControlCenter(new Move(rover));
 
         //when
@@ -47,7 +47,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_1_y_0_heading_E_when_runCommands_given_x_0_y_0_heading_E_commands_M() {
         //given
-        MarsRover rover = new MarsRover(0, 0, EAST);
+        MarsRover rover = new MarsRover(new Location(0,0), EAST);
         ControlCenter controlCenter = new ControlCenter(new Move(rover));
 
         //when
@@ -62,7 +62,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_neg1_y_0_heading_W_when_runCommands_given_x_0_y_0_heading_W_commands_M() {
         //given
-        MarsRover rover = new MarsRover(0, 0, WEST);
+        MarsRover rover = new MarsRover(new Location(0,0), WEST);
         ControlCenter controlCenter = new ControlCenter(new Move(rover));
 
         //when
@@ -77,7 +77,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_W_when_runCommands_given_x_0_y_0_heading_N_commands_L() {
         //given
-        MarsRover rover = new MarsRover(0, 0, NORTH);
+        MarsRover rover = new MarsRover(new Location(0,0), NORTH);
         ControlCenter controlCenter = new ControlCenter(new TurnLeft(rover));
 
         //when
@@ -92,7 +92,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_E_when_runCommands_given_x_0_y_0_heading_S_commands_L() {
         //given
-        MarsRover rover = new MarsRover(0, 0, SOUTH);
+        MarsRover rover = new MarsRover(new Location(0,0), SOUTH);
         ControlCenter controlCenter = new ControlCenter(new TurnLeft(rover));
 
         //when
@@ -107,7 +107,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_N_when_runCommands_given_x_0_y_0_heading_E_commands_L() {
         //given
-        MarsRover rover = new MarsRover(0, 0, EAST);
+        MarsRover rover = new MarsRover(new Location(0,0), EAST);
         ControlCenter controlCenter = new ControlCenter(new TurnLeft(rover));
 
         //when
@@ -122,7 +122,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_S_when_runCommands_given_x_0_y_0_heading_W_commands_L() {
         //given
-        MarsRover rover = new MarsRover(0, 0, WEST);
+        MarsRover rover = new MarsRover(new Location(0,0), WEST);
         ControlCenter controlCenter = new ControlCenter(new TurnLeft(rover));
 
         //when
@@ -137,7 +137,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_E_when_runCommands_given_x_0_y_0_heading_N_commands_R() {
         //given
-        MarsRover rover = new MarsRover(0, 0, NORTH);
+        MarsRover rover = new MarsRover(new Location(0,0), NORTH);
         ControlCenter controlCenter = new ControlCenter(new TurnRight(rover));
 
         //when
@@ -152,7 +152,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_W_when_runCommands_given_x_0_y_0_heading_S_commands_R() {
         //given
-        MarsRover rover = new MarsRover(0, 0, SOUTH);
+        MarsRover rover = new MarsRover(new Location(0,0), SOUTH);
         ControlCenter controlCenter = new ControlCenter(new TurnRight(rover));
 
         //when
@@ -167,7 +167,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_S_when_runCommands_given_x_0_y_0_heading_E_commands_R() {
         //given
-        MarsRover rover = new MarsRover(0, 0, EAST);
+        MarsRover rover = new MarsRover(new Location(0,0), EAST);
         ControlCenter controlCenter = new ControlCenter(new TurnRight(rover));
 
         //when
@@ -182,7 +182,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_0_y_0_heading_N_when_runCommands_given_x_0_y_0_heading_W_commands_R() {
         //given
-        MarsRover rover = new MarsRover(0, 0, WEST);
+        MarsRover rover = new MarsRover(new Location(0,0), WEST);
         ControlCenter controlCenter = new ControlCenter(new TurnRight(rover));
 
         //when
@@ -197,7 +197,7 @@ class MarsRoverCommandTest {
     @Test
     void should_throw_CommandNotDefinedException_when_runActions_given_x_0_y_0_heading_N_commands_F() {
         //given
-        MarsRover rover = new MarsRover(0, 0, NORTH);
+        MarsRover rover = new MarsRover(new Location(0,0), NORTH);
 
         //when
         ControlCenter controlCenter = new ControlCenter(new Jump(rover));
@@ -212,7 +212,7 @@ class MarsRoverCommandTest {
     @Test
     void should_x_neg1_y_1_heading_N_when_runCommands_given_x_0_y_0_heading_N_commands_MLMR() {
         //given
-        MarsRover rover = new MarsRover(0, 0, NORTH);
+        MarsRover rover = new MarsRover(new Location(0,0), NORTH);
         ControlCenter controlCenter = new ControlCenter(
                 new Move(rover),
                 new TurnLeft(rover),
@@ -230,7 +230,7 @@ class MarsRoverCommandTest {
     @Test
     void should_rollback_x_0_y_0_heading_N_when_runCommands_given_x_0_y_0_heading_N_commands_MLMRJ() {
         //given
-        MarsRover rover = new MarsRover(0, 0, NORTH);
+        MarsRover rover = new MarsRover(new Location(0,0), NORTH);
         ControlCenter controlCenter = new ControlCenter(
                 new Move(rover),
                 new TurnLeft(rover),

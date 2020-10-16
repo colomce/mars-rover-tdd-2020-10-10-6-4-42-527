@@ -15,16 +15,14 @@ import static com.afs.tdd.Directions.SOUTH;
 import static com.afs.tdd.Directions.WEST;
 
 public class MarsRover implements IExplorationDevice {
-    private int x;
-    private int y;
+    private Location location;
     private Directions heading;
 
     private List<Class> validCommands = Arrays.asList(Move.class, TurnLeft.class, TurnRight.class);
     private List<ICommand> invalidCommands = new ArrayList<>();
 
-    public MarsRover(int x, int y, Directions heading) {
-        this.x = x;
-        this.y = y;
+    public MarsRover(Location location, Directions heading) {
+        this.location = location;
         this.heading = heading;
     }
 
@@ -48,27 +46,32 @@ public class MarsRover implements IExplorationDevice {
 
     @Override
     public void moveForward() {
+        int x = this.location.getX();
+        int y = this.location.getY();
         if (NORTH.equals(heading)) {
-            y++;
+            this.location.setY(++y);
         } else if (SOUTH.equals(heading)) {
-            y--;
+            this.location.setY(--y);
         } else if (EAST.equals(heading)) {
-            x++;
+            this.location.setX(++x);
         } else if (WEST.equals(heading)) {
-            x--;
+            this.location.setX(--x);
         }
     }
 
     @Override
     public void moveBackwards() {
+        int x = this.location.getX();
+        int y = this.location.getY();
+
         if (NORTH.equals(heading)) {
-            y--;
+            this.location.setY(--y);
         } else if (SOUTH.equals(heading)) {
-            y++;
+            this.location.setY(++y);
         } else if (EAST.equals(heading)) {
-            x--;
+            this.location.setX(--x);
         } else if (WEST.equals(heading)) {
-            x++;
+            this.location.setX(++x);
         }
     }
 
@@ -99,11 +102,11 @@ public class MarsRover implements IExplorationDevice {
     }
 
     public int getLocationX() {
-        return x;
+        return this.location.getX();
     }
 
     public int getLocationY() {
-        return y;
+        return this.location.getY();
     }
 
     public Directions getHeading() {
